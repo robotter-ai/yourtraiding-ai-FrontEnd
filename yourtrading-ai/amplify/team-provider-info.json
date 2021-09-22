@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yourtradingai-dev-105402-authRole",
+      "UnauthRoleArn": "arn:aws:iam::726358581469:role/amplify-yourtradingai-dev-105402-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::726358581469:role/amplify-yourtradingai-dev-105402-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-yourtradingai-dev-105402-deployment",
+      "UnauthRoleName": "amplify-yourtradingai-dev-105402-unauthRole",
+      "StackName": "amplify-yourtradingai-dev-105402",
+      "StackId": "arn:aws:cloudformation:eu-central-1:726358581469:stack/amplify-yourtradingai-dev-105402/a53316d0-1b82-11ec-8713-0a08a99f9846",
+      "AmplifyAppId": "dwfbb2pgz5d9n"
+    }
+  }
+}
