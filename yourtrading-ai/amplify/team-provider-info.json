@@ -10,6 +10,11 @@
       "StackName": "amplify-yourtradingai-dev-105402",
       "StackId": "arn:aws:cloudformation:eu-central-1:726358581469:stack/amplify-yourtradingai-dev-105402/a53316d0-1b82-11ec-8713-0a08a99f9846",
       "AmplifyAppId": "dwfbb2pgz5d9n"
+    },
+    "categories": {
+      "auth": {
+        "yourtradingai47a9896a": {}
+      }
     }
   }
 }
