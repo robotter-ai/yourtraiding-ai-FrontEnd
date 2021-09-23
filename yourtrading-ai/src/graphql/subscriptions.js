@@ -34,3 +34,309 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
+export const onCreateSource = /* GraphQL */ `
+  subscription OnCreateSource {
+    onCreateSource {
+      id
+      name
+      url
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateSource = /* GraphQL */ `
+  subscription OnUpdateSource {
+    onUpdateSource {
+      id
+      name
+      url
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteSource = /* GraphQL */ `
+  subscription OnDeleteSource {
+    onDeleteSource {
+      id
+      name
+      url
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateCoin = /* GraphQL */ `
+  subscription OnCreateCoin {
+    onCreateCoin {
+      id
+      name
+      symbol
+      description
+      urls
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateCoin = /* GraphQL */ `
+  subscription OnUpdateCoin {
+    onUpdateCoin {
+      id
+      name
+      symbol
+      description
+      urls
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteCoin = /* GraphQL */ `
+  subscription OnDeleteCoin {
+    onDeleteCoin {
+      id
+      name
+      symbol
+      description
+      urls
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateDataset = /* GraphQL */ `
+  subscription OnCreateDataset {
+    onCreateDataset {
+      id
+      sourceID
+      coinID
+      title
+      interval
+      count
+      mean
+      std
+      min
+      max
+      description
+      data {
+        items {
+          id
+          datasetID
+          datetime
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateDataset = /* GraphQL */ `
+  subscription OnUpdateDataset {
+    onUpdateDataset {
+      id
+      sourceID
+      coinID
+      title
+      interval
+      count
+      mean
+      std
+      min
+      max
+      description
+      data {
+        items {
+          id
+          datasetID
+          datetime
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteDataset = /* GraphQL */ `
+  subscription OnDeleteDataset {
+    onDeleteDataset {
+      id
+      sourceID
+      coinID
+      title
+      interval
+      count
+      mean
+      std
+      min
+      max
+      description
+      data {
+        items {
+          id
+          datasetID
+          datetime
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateTimeEntry = /* GraphQL */ `
+  subscription OnCreateTimeEntry {
+    onCreateTimeEntry {
+      id
+      datasetID
+      datetime
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateTimeEntry = /* GraphQL */ `
+  subscription OnUpdateTimeEntry {
+    onUpdateTimeEntry {
+      id
+      datasetID
+      datetime
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteTimeEntry = /* GraphQL */ `
+  subscription OnDeleteTimeEntry {
+    onDeleteTimeEntry {
+      id
+      datasetID
+      datetime
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;

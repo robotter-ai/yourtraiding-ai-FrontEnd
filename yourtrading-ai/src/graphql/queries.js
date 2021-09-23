@@ -30,3 +30,197 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
+export const getSource = /* GraphQL */ `
+  query GetSource($id: ID!) {
+    getSource(id: $id) {
+      id
+      name
+      url
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listSources = /* GraphQL */ `
+  query ListSources(
+    $filter: ModelSourceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listSources(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        url
+        datasets {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCoin = /* GraphQL */ `
+  query GetCoin($id: ID!) {
+    getCoin(id: $id) {
+      id
+      name
+      symbol
+      description
+      urls
+      datasets {
+        items {
+          id
+          sourceID
+          coinID
+          title
+          interval
+          count
+          mean
+          std
+          min
+          max
+          description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCoins = /* GraphQL */ `
+  query ListCoins(
+    $filter: ModelCoinFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCoins(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        symbol
+        description
+        urls
+        datasets {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getDataset = /* GraphQL */ `
+  query GetDataset($id: ID!) {
+    getDataset(id: $id) {
+      id
+      sourceID
+      coinID
+      title
+      interval
+      count
+      mean
+      std
+      min
+      max
+      description
+      data {
+        items {
+          id
+          datasetID
+          datetime
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listDatasets = /* GraphQL */ `
+  query ListDatasets(
+    $filter: ModelDatasetFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDatasets(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        sourceID
+        coinID
+        title
+        interval
+        count
+        mean
+        std
+        min
+        max
+        description
+        data {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getTimeEntry = /* GraphQL */ `
+  query GetTimeEntry($id: ID!) {
+    getTimeEntry(id: $id) {
+      id
+      datasetID
+      datetime
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listTimeEntries = /* GraphQL */ `
+  query ListTimeEntries(
+    $filter: ModelTimeEntryFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTimeEntries(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        datasetID
+        datetime
+        value
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

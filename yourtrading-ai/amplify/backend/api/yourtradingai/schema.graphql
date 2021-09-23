@@ -3,3 +3,44 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type Source @model {
+  id: ID!
+  name: String!
+  url: String
+  datasets: [Dataset] @connection(keyName: "bySource", fields: ["id"])
+}
+
+type Coin @model {
+  id: ID!
+  name: String!
+  symbol: String!
+  description: String
+  urls: [String]
+  datasets: [Dataset] @connection(keyName: "byCoin", fields: ["id"])
+}
+
+type Dataset @model
+  @key(name: "byCoin", fields: ["coinID", "id"])
+  @key(name: "bySource", fields: ["sourceID", "id"]) {
+  id: ID!
+  sourceID: ID!
+  coinID: ID
+  title: String!
+  interval: String!
+  count: Int!
+  mean: Float!
+  std: Float!
+  min: Float!
+  max: Float!
+  description: String
+  data: [TimeEntry] @connection(keyName: "byDatasetByDatetime", fields: ["id"])
+}
+
+type TimeEntry @model
+  @key(name: "byDatasetByDatetime", fields: ["datasetID", "datetime"]) {
+  id: ID!
+  datasetID: ID!
+  datetime: AWSDateTime!
+  value: Float
+}
