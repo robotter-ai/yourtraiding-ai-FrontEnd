@@ -85,7 +85,6 @@ export const getCoin = /* GraphQL */ `
     getCoin(id: $id) {
       id
       name
-      symbol
       description
       urls
       datasets {
@@ -121,7 +120,6 @@ export const listCoins = /* GraphQL */ `
       items {
         id
         name
-        symbol
         description
         urls
         datasets {

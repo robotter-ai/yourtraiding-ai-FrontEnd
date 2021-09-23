@@ -147,7 +147,6 @@ export const createCoin = /* GraphQL */ `
     createCoin(input: $input, condition: $condition) {
       id
       name
-      symbol
       description
       urls
       datasets {
@@ -181,7 +180,6 @@ export const updateCoin = /* GraphQL */ `
     updateCoin(input: $input, condition: $condition) {
       id
       name
-      symbol
       description
       urls
       datasets {
@@ -215,7 +213,6 @@ export const deleteCoin = /* GraphQL */ `
     deleteCoin(input: $input, condition: $condition) {
       id
       name
-      symbol
       description
       urls
       datasets {

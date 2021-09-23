@@ -126,7 +126,6 @@ export const onCreateCoin = /* GraphQL */ `
     onCreateCoin {
       id
       name
-      symbol
       description
       urls
       datasets {
@@ -157,7 +156,6 @@ export const onUpdateCoin = /* GraphQL */ `
     onUpdateCoin {
       id
       name
-      symbol
       description
       urls
       datasets {
@@ -188,7 +186,6 @@ export const onDeleteCoin = /* GraphQL */ `
     onDeleteCoin {
       id
       name
-      symbol
       description
       urls
       datasets {

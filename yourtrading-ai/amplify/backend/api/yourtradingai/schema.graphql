@@ -14,7 +14,6 @@ type Source @model {
 type Coin @model {
   id: ID!
   name: String!
-  symbol: String!
   description: String
   urls: [String]
   datasets: [Dataset] @connection(keyName: "byCoin", fields: ["id"])
