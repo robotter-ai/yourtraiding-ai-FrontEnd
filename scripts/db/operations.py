@@ -24,45 +24,67 @@ def create_one(table_name: str, data: Union[dict, list, DataFrame]):
     return resp
 
 
-def query_all(table_name: str, columns: list = None):
-    if columns is None:
-        columns = columns[table_name]
+def delete_one(table_name: str, id: str):
+    print(id)
+    req_str = \
+        rf"""mutation {{
+            delete{table_name}(input: {{id: "{id}"}}) {{
+                id
+            }}
+        }}"""
+    print(req_str)
+    req = gql(req_str)
+    resp = client.execute(req)
+    print(resp)
+    return resp
+
+
+def list_items(table_name: str, cols: list = None) -> DataFrame:
+    if cols is None:
+        cols = columns[table_name]
+    query_name = f"list{table_name}"
+    if query_name[-1] == 'y':
+        query_name = query_name[:-1] + "ies"
+    else:
+        query_name += "s"
     req_str = \
         rf"""query {{
-            {table_name} {{
-                {' '.join(columns)}
+            {query_name} {{
+                items {{
+                    {' '.join(cols)}
+                }}
             }}
         }}"""
     req = gql(req_str)
-    return DataFrame(client.execute(req)[table_name])
+    return DataFrame(client.execute(req)[query_name]['items'])
 
 
 def query_equal(table_name: str, key, value):
-    columns = columns[table_name]
+    cols = columns[table_name]
     req_str = \
         rf"""query {{
             {table_name}(where: {{{key}: {{_eq: "{value}"}}}}) {{
-                {' '.join(columns)}
+                {' '.join(cols)}
             }}
         }}"""
-    df = DataFrame(client.execute(gql(req_str))[table_name], columns=columns)
-    if 'datetime' in columns:
+    df = DataFrame(client.execute(gql(req_str))[table_name], columns=cols)
+    if 'datetime' in cols:
         df['datetime'] = df['datetime'].apply(lambda x: datetime.fromisoformat(x))
     return df
 
 
 def query_equal_open_close_time(table_name: str, key, value, open_time: datetime, close_time: datetime):
-    columns = columns[table_name]
+    cols = columns[table_name]
     req_str = \
         rf"""query {{
             {table_name}(where: {{{key}: {{_eq: "{value}"}},
             datetime: {{_gte: "{open_time.isoformat()}"}}, datetime: {{_lte: "{close_time.isoformat()}"}}}},
             order_by: {{close_time: asc}}) {{
-                {' '.join(columns)}
+                {' '.join(cols)}
             }}
         }}"""
-    df = DataFrame(client.execute(gql(req_str))[table_name], columns=columns)
-    if 'datetime' in columns:
+    df = DataFrame(client.execute(gql(req_str))[table_name], columns=cols)
+    if 'datetime' in cols:
         df['datetime'] = df['datetime'].apply(lambda x: datetime.fromisoformat(x))
     return df
 

@@ -10,11 +10,11 @@ import numpy as np
 
 os.environ['GQL_BASE_URL'] = "https://nwss3pdjyrfp3dzrx75cj3f7wy.appsync-api.eu-central-1.amazonaws.com/graphql"
 os.environ['SECRET_GQL_KEY'] = "da2-bwite7k3tvbbdgryxq5m7mwmgm"
-os.environ['GQL_SCHEMA_PATH'] = 'yourtrading-ai/amplify/backend/api/yourtradingai/build/schema.graphql'
+#os.environ['GQL_SCHEMA_PATH'] = 'yourtrading-ai/amplify/backend/api/yourtradingai/build/schema.graphql'
 
 # Load schema
-with open(os.environ.get('GQL_SCHEMA_PATH')) as f:
-    schema_str = f.read()
+#with open(os.environ.get('GQL_SCHEMA_PATH')) as f:
+#    schema_str = f.read()
 
 client = Client(
     #schema=schema_str,

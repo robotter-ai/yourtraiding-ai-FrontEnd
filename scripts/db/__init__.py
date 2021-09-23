@@ -1,4 +1,4 @@
-import scripts.db.data
+import scripts.db.data as data
 
 init_data = {
     "Coin": data.coins,
