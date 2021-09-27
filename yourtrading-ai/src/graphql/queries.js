@@ -49,6 +49,8 @@ export const getSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -100,6 +102,8 @@ export const getCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -146,17 +150,8 @@ export const getDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      x
+      y
       createdAt
       updatedAt
     }
@@ -181,40 +176,8 @@ export const listDatasets = /* GraphQL */ `
         min
         max
         description
-        data {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getTimeEntry = /* GraphQL */ `
-  query GetTimeEntry($id: ID!) {
-    getTimeEntry(id: $id) {
-      id
-      datasetID
-      datetime
-      value
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listTimeEntries = /* GraphQL */ `
-  query ListTimeEntries(
-    $filter: ModelTimeEntryFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTimeEntries(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        datasetID
-        datetime
-        value
+        x
+        y
         createdAt
         updatedAt
       }

@@ -33,13 +33,6 @@ type Dataset @model
   min: Float!
   max: Float!
   description: String
-  data: [TimeEntry] @connection(keyName: "byDatasetByDatetime", fields: ["id"])
-}
-
-type TimeEntry @model
-  @key(name: "byDatasetByDatetime", fields: ["datasetID", "datetime"]) {
-  id: ID!
-  datasetID: ID!
-  datetime: AWSDateTime!
-  value: Float
+  x: [AWSDateTime]
+  y: [Float]
 }

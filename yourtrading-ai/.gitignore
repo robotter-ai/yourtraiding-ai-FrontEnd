@@ -22,6 +22,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+
+
+.aws
+.idea
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -43,6 +48,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-
-
-.aws

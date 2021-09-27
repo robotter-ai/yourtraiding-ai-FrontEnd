@@ -53,6 +53,8 @@ export const onCreateSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -82,6 +84,8 @@ export const onUpdateSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -111,6 +115,8 @@ export const onDeleteSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -141,6 +147,8 @@ export const onCreateCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -171,6 +179,8 @@ export const onUpdateCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -201,6 +211,8 @@ export const onDeleteCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -225,17 +237,8 @@ export const onCreateDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      x
+      y
       createdAt
       updatedAt
     }
@@ -255,17 +258,8 @@ export const onUpdateDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      x
+      y
       createdAt
       updatedAt
     }
@@ -285,53 +279,8 @@ export const onDeleteDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateTimeEntry = /* GraphQL */ `
-  subscription OnCreateTimeEntry {
-    onCreateTimeEntry {
-      id
-      datasetID
-      datetime
-      value
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateTimeEntry = /* GraphQL */ `
-  subscription OnUpdateTimeEntry {
-    onUpdateTimeEntry {
-      id
-      datasetID
-      datetime
-      value
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteTimeEntry = /* GraphQL */ `
-  subscription OnDeleteTimeEntry {
-    onDeleteTimeEntry {
-      id
-      datasetID
-      datetime
-      value
+      x
+      y
       createdAt
       updatedAt
     }

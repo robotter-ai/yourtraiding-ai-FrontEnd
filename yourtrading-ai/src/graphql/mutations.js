@@ -65,6 +65,8 @@ export const createSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -97,6 +99,8 @@ export const updateSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -129,6 +133,8 @@ export const deleteSource = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -162,6 +168,8 @@ export const createCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -195,6 +203,8 @@ export const updateCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -228,6 +238,8 @@ export const deleteCoin = /* GraphQL */ `
           min
           max
           description
+          x
+          y
           createdAt
           updatedAt
         }
@@ -255,17 +267,8 @@ export const createDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      x
+      y
       createdAt
       updatedAt
     }
@@ -288,17 +291,8 @@ export const updateDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      x
+      y
       createdAt
       updatedAt
     }
@@ -321,62 +315,8 @@ export const deleteDataset = /* GraphQL */ `
       min
       max
       description
-      data {
-        items {
-          id
-          datasetID
-          datetime
-          value
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createTimeEntry = /* GraphQL */ `
-  mutation CreateTimeEntry(
-    $input: CreateTimeEntryInput!
-    $condition: ModelTimeEntryConditionInput
-  ) {
-    createTimeEntry(input: $input, condition: $condition) {
-      id
-      datasetID
-      datetime
-      value
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateTimeEntry = /* GraphQL */ `
-  mutation UpdateTimeEntry(
-    $input: UpdateTimeEntryInput!
-    $condition: ModelTimeEntryConditionInput
-  ) {
-    updateTimeEntry(input: $input, condition: $condition) {
-      id
-      datasetID
-      datetime
-      value
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteTimeEntry = /* GraphQL */ `
-  mutation DeleteTimeEntry(
-    $input: DeleteTimeEntryInput!
-    $condition: ModelTimeEntryConditionInput
-  ) {
-    deleteTimeEntry(input: $input, condition: $condition) {
-      id
-      datasetID
-      datetime
-      value
+      x
+      y
       createdAt
       updatedAt
     }
