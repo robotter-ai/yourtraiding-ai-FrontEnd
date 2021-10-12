@@ -100,6 +100,12 @@ module.exports = {
                 format: ['UPPER_CASE'],
             },
         ],
-        'react/jsx-filename-extension': 'off'
+        'react/jsx-filename-extension': 'off',
+        "no-restricted-imports": [
+            "error",
+            {
+                "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
+            }
+        ]
     },
 };
