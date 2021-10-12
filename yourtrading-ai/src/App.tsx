@@ -4,6 +4,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import awsExports from './aws-exports';
 import { styled } from '@mui/styles';
 import { Paper } from '@mui/material';
+import CoinSelectionDrawer from './CoinSelectionDrawer';
 
 Amplify.configure(awsExports);
 
@@ -13,7 +14,11 @@ const Background = styled(Paper)(() => ({
 }));
 
 function App() {
-    return <Background style={{ borderRadius: 0, backgroundColor: '#303030' }}></Background>;
+    return (
+        <Background style={{ borderRadius: 0, backgroundColor: '#303030' }}>
+            <CoinSelectionDrawer />
+        </Background>
+    );
 }
 
 export default withAuthenticator(App);
