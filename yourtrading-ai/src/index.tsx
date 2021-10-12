@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.scss';
 import Amplify from 'aws-amplify';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import awsExports from './aws-exports';
+import Setup from './Setup';
 
 Amplify.configure(awsExports);
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Setup>
+            <App />
+        </Setup>
     </React.StrictMode>,
     document.getElementById('root'),
 );
