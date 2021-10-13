@@ -8,9 +8,8 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import SVG from './SVG';
-import { Checkbox } from '@mui/material';
+import { Checkbox, Fab } from '@mui/material';
 
 const drawerWidth = 367;
 
@@ -100,7 +99,7 @@ function PersistentDrawerLeft() {
                 <List>
                     {coins.map(({ name, value, checked }, index) => (
                         <ListItem button key={name}>
-                            <Checkbox inputProps={{ 'aria-label': 'primary checkbox' }} />
+                            <Checkbox inputProps={{ 'aria-label': `${name} checkbox` }} />
                             <ListItemIcon>
                                 <SVG src="/assets/logo.svg" />
                             </ListItemIcon>
@@ -113,7 +112,7 @@ function PersistentDrawerLeft() {
                                     justifyContent: 'space-between',
                                 }}
                             >
-                                <ListItemText primary={name} />
+                                <Typography>{name}</Typography>
                                 <Typography align="right">{value}</Typography>
                                 <Box
                                     style={{
@@ -133,7 +132,15 @@ function PersistentDrawerLeft() {
                     ))}
                 </List>
             </Drawer>
-            <Main open={true}></Main>
+            <Main open={true}>
+                <Fab
+                    color="primary"
+                    aria-label="download"
+                    style={{ position: 'fixed', right: theme.spacing(3), bottom: theme.spacing(3) }}
+                >
+                    <SVG src="/assets/cloud_download.svg" />
+                </Fab>
+            </Main>
         </Box>
     );
 }
