@@ -9,7 +9,17 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import SVG from './SVG';
-import { Checkbox, Fab } from '@mui/material';
+import {
+    Card,
+    CardContent,
+    Checkbox,
+    Fab,
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Select,
+    SelectChangeEvent,
+} from '@mui/material';
 
 const drawerWidth = 367;
 
@@ -41,9 +51,28 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-start',
     gap: theme.spacing(2),
 }));
+const sources = ['Yahoo', 'Google'];
+const intervals = ['Hourly', 'Daily'];
+const volume = [
+    { name: 'min', value: 1 },
+    { name: 'max', value: 1 },
+    { name: 'avg', value: 1 },
+    { name: 'count', value: 1 },
+];
 
 function PersistentDrawerLeft() {
     const theme = useTheme();
+
+    const [source, setSource] = React.useState(sources[0]);
+    const handleChangeSource = (event: SelectChangeEvent) => {
+        setSource(event.target.value);
+    };
+
+    const [interval, setInterval] = React.useState(intervals[0]);
+    const handleChangeInterval = (event: SelectChangeEvent) => {
+        // eslint-disable-next-line @typescript-eslint/no-implied-eval
+        setInterval(event.target.value);
+    };
 
     const coins = [
         {
@@ -72,6 +101,7 @@ function PersistentDrawerLeft() {
             checked: ['min'],
         },
     ];
+    const minWidthSX = { minWidth: 200 };
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -133,14 +163,77 @@ function PersistentDrawerLeft() {
                 </List>
             </Drawer>
             <Main open={true}>
-                <Fab
-                    color="primary"
-                    aria-label="download"
-                    style={{ position: 'fixed', right: theme.spacing(3), bottom: theme.spacing(3) }}
+                <Box
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        flexWrap: 'wrap',
+                        gap: theme.spacing(2),
+                    }}
                 >
-                    <SVG src="/assets/cloud_download.svg" />
-                </Fab>
+                    <Box>
+                        <Typography variant="h5" component="h2">
+                            Etherium
+                        </Typography>
+                        <Typography variant="h3" component="h3">
+                            $10,561.24
+                        </Typography>
+                    </Box>
+
+                    <Card sx={minWidthSX}>
+                        <CardContent>
+                            <Typography color="text.secondary">Volume:</Typography>
+                            {volume.map(({ name, value }) => (
+                                <Box
+                                    key={name}
+                                    display="flex"
+                                    style={{ justifyContent: 'space-between', gap: theme.spacing(2) }}
+                                >
+                                    <Typography variant="body2">{name}</Typography>
+                                    <Typography variant="body2" align="right">
+                                        {value}
+                                    </Typography>
+                                </Box>
+                            ))}
+                        </CardContent>
+                    </Card>
+
+                    <Box display="flex" style={{ flexDirection: 'column', gap: theme.spacing(2) }}>
+                        <FormControl sx={minWidthSX}>
+                            <InputLabel id="select-interval">Interval</InputLabel>
+                            <Select
+                                labelId="select-interval"
+                                value={interval}
+                                label="interval"
+                                onChange={handleChangeInterval}
+                            >
+                                {intervals.map((i) => (
+                                    <MenuItem value={i} key={i}>
+                                        {i}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <FormControl sx={minWidthSX}>
+                            <InputLabel id="select-source">Source</InputLabel>
+                            <Select labelId="select-source" value={source} label="source" onChange={handleChangeSource}>
+                                {sources.map((s) => (
+                                    <MenuItem value={s} key={s}>
+                                        {s}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </Box>
             </Main>
+            <Fab
+                color="primary"
+                aria-label="download"
+                style={{ position: 'fixed', right: theme.spacing(3), bottom: theme.spacing(3) }}
+            >
+                <SVG src="/assets/cloud_download.svg" />
+            </Fab>
         </Box>
     );
 }
