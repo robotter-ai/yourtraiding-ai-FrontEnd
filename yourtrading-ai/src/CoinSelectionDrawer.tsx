@@ -15,6 +15,8 @@ import {
     Checkbox,
     Fab,
     FormControl,
+    FormControlLabel,
+    FormGroup,
     InputLabel,
     MenuItem,
     Select,
@@ -78,27 +80,35 @@ function PersistentDrawerLeft() {
         {
             name: 'BTC',
             value: 123,
-            checked: ['min', 'max', 'mean', 'count', 'max', 'mean', 'count'],
+            checked: [
+                { name: 'min', isChecked: true },
+                { name: 'max', isChecked: false },
+                { name: 'mean', isChecked: true },
+                { name: 'count', isChecked: false },
+            ],
         },
         {
             name: 'ETH',
             value: 123,
-            checked: ['min', 'max'],
+            checked: [
+                { name: 'min', isChecked: true },
+                { name: 'max', isChecked: true },
+            ],
         },
         {
             name: 'LTC',
             value: 123,
-            checked: ['min'],
+            checked: [{ name: 'min', isChecked: true }],
         },
         {
             name: 'XRP',
             value: 123,
-            checked: ['min'],
+            checked: [{ name: 'min', isChecked: true }],
         },
         {
             name: 'USDT',
             value: 123,
-            checked: ['min'],
+            checked: [{ name: 'min', isChecked: true }],
         },
     ];
     const minWidthSX = { minWidth: 200 };
@@ -153,16 +163,23 @@ function PersistentDrawerLeft() {
                                         gap: theme.spacing(0, 2),
                                     }}
                                 >
-                                    {checked.map((c) => (
-                                        <Typography variant="caption">{c}</Typography>
-                                    ))}
+                                    {checked
+                                        .filter((c) => c.isChecked)
+                                        .map((c) => (
+                                            <Typography variant="caption" key={c.name}>
+                                                {c.name}
+                                            </Typography>
+                                        ))}
                                 </Box>
                             </Box>
                         </ListItem>
                     ))}
                 </List>
             </Drawer>
-            <Main open={true}>
+            <Main
+                open={true}
+                style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+            >
                 <Box
                     style={{
                         display: 'flex',
@@ -226,6 +243,21 @@ function PersistentDrawerLeft() {
                         </FormControl>
                     </Box>
                 </Box>
+
+                <FormGroup style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing(2) }}>
+                    {coins[0].checked.map(({ name, isChecked }) => (
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={isChecked}
+                                    key={name}
+                                    inputProps={{ 'aria-label': `${name} checkbox` }}
+                                />
+                            }
+                            label={name}
+                        />
+                    ))}
+                </FormGroup>
             </Main>
             <Fab
                 color="primary"
