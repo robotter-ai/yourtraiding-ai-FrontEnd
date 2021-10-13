@@ -10,6 +10,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SVG from './SVG';
+import { Checkbox } from '@mui/material';
 
 const drawerWidth = 367;
 
@@ -45,6 +46,33 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 function PersistentDrawerLeft() {
     const theme = useTheme();
 
+    const coins = [
+        {
+            name: 'BTC',
+            value: 123,
+            checked: ['min', 'max', 'mean', 'count', 'max', 'mean', 'count'],
+        },
+        {
+            name: 'ETH',
+            value: 123,
+            checked: ['min', 'max'],
+        },
+        {
+            name: 'LTC',
+            value: 123,
+            checked: ['min'],
+        },
+        {
+            name: 'XRP',
+            value: 123,
+            checked: ['min'],
+        },
+        {
+            name: 'USDT',
+            value: 123,
+            checked: ['min'],
+        },
+    ];
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -70,12 +98,37 @@ function PersistentDrawerLeft() {
                 <Divider />
 
                 <List>
-                    {['BTC', 'ETH', 'LTC', 'XRP', 'USDT'].map((text, index) => (
-                        <ListItem button key={text}>
+                    {coins.map(({ name, value, checked }, index) => (
+                        <ListItem button key={name}>
+                            <Checkbox inputProps={{ 'aria-label': 'primary checkbox' }} />
                             <ListItemIcon>
                                 <SVG src="/assets/logo.svg" />
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <Box
+                                style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: '1fr 1fr',
+                                    gap: theme.spacing(0, 2),
+                                    width: '100%',
+                                    justifyContent: 'space-between',
+                                }}
+                            >
+                                <ListItemText primary={name} />
+                                <Typography align="right">{value}</Typography>
+                                <Box
+                                    style={{
+                                        gridColumnEnd: 'end',
+                                        gridColumnStart: 1,
+                                        display: 'flex',
+                                        flexWrap: 'wrap',
+                                        gap: theme.spacing(0, 2),
+                                    }}
+                                >
+                                    {checked.map((c) => (
+                                        <Typography variant="caption">{c}</Typography>
+                                    ))}
+                                </Box>
+                            </Box>
                         </ListItem>
                     ))}
                 </List>
