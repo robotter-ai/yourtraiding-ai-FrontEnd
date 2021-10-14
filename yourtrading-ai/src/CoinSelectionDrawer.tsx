@@ -22,6 +22,7 @@ import {
     Select,
     SelectChangeEvent,
 } from '@mui/material';
+import Chart from './Chart';
 
 const drawerWidth = 367;
 
@@ -243,6 +244,8 @@ function PersistentDrawerLeft() {
                         </FormControl>
                     </Box>
                 </Box>
+
+                <Chart />
 
                 <FormGroup style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing(2) }}>
                     {coins[0].checked.map(({ name, isChecked }) => (
