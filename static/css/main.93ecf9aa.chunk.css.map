@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/styles/index.scss"],"names":[],"mappings":"AAEA,KACE,QAAS","file":"main.93ecf9aa.chunk.css","sourcesContent":["//@import 'font';\n\nbody {\n  margin: 0;\n}\n"]}
