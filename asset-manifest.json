@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/yourtraiding-ai-FrontEnd/static/css/main.93ecf9aa.chunk.css",
-    "main.js": "/yourtraiding-ai-FrontEnd/static/js/main.f67502af.chunk.js",
-    "main.js.map": "/yourtraiding-ai-FrontEnd/static/js/main.f67502af.chunk.js.map",
+    "main.js": "/yourtraiding-ai-FrontEnd/static/js/main.d7257592.chunk.js",
+    "main.js.map": "/yourtraiding-ai-FrontEnd/static/js/main.d7257592.chunk.js.map",
     "runtime-main.js": "/yourtraiding-ai-FrontEnd/static/js/runtime-main.38c320b6.js",
     "runtime-main.js.map": "/yourtraiding-ai-FrontEnd/static/js/runtime-main.38c320b6.js.map",
     "static/js/2.d66cec95.chunk.js": "/yourtraiding-ai-FrontEnd/static/js/2.d66cec95.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.38c320b6.js",
     "static/js/2.d66cec95.chunk.js",
     "static/css/main.93ecf9aa.chunk.css",
-    "static/js/main.f67502af.chunk.js"
+    "static/js/main.d7257592.chunk.js"
   ]
 }
