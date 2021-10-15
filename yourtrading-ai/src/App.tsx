@@ -8,13 +8,13 @@ import CoinSelectionDrawer from './CoinSelectionDrawer';
 Amplify.configure(awsExports);
 
 const Background = styled(Paper)(() => ({
-    width: '100vw',
+    width: '100%',
     height: '100vh',
 }));
 
 function App() {
     return (
-        <Background style={{ borderRadius: 0, backgroundColor: '#303030' }}>
+        <Background style={{ borderRadius: 0, backgroundColor: 'transparent', boxShadow: 'none' }}>
             <CoinSelectionDrawer />
         </Background>
     );

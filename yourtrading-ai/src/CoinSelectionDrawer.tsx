@@ -45,6 +45,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
         }),
         marginLeft: 0,
     }),
+    backgroundColor: '#303030',
 }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -295,7 +296,7 @@ function PersistentDrawerLeft() {
                         gap: theme.spacing(2),
                     }}
                 >
-                    <Box>
+                    <Box style={{ minWidth: '240px' }}>
                         <Typography variant="h5" component="h2">
                             {coins[selectedCoinIndex].name}
                         </Typography>
