@@ -139,7 +139,11 @@ function PersistentDrawerLeft() {
         },
     ];
     const minWidthSX = { minWidth: 200 };
-    const selectedCoinIndex = 0;
+    const [selectedCoinIndex, setSelectedCoinIndex] = React.useState(0);
+    const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+        setSelectedCoinIndex(index);
+    };
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -166,7 +170,12 @@ function PersistentDrawerLeft() {
 
                 <List>
                     {coins.map(({ id, logo, value, checked }, index) => (
-                        <ListItem button key={id}>
+                        <ListItem
+                            button
+                            key={id}
+                            selected={selectedCoinIndex === index}
+                            onClick={(event) => handleListItemClick(event, index)}
+                        >
                             <Checkbox inputProps={{ 'aria-label': `${id} checkbox` }} />
                             <ListItemIcon>
                                 <img src={logo} />
