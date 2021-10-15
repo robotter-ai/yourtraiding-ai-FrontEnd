@@ -58,12 +58,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 const sources = ['Yahoo', 'Google'];
 const intervals = ['Hourly', 'Daily'];
-const volume = [
-    { id: 'min', value: 1 },
-    { id: 'max', value: 1 },
-    { id: 'avg', value: 1 },
-    { id: 'count', value: 1 },
-];
 
 function PersistentDrawerLeft() {
     const theme = useTheme();
@@ -92,6 +86,12 @@ function PersistentDrawerLeft() {
                 { id: 'close', isChecked: false },
                 { id: 'volume', isChecked: false },
             ],
+            volume: [
+                { id: 'min', value: '$3,754.72' },
+                { id: 'max', value: '$3,909.25' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
+            ],
         },
         {
             id: 'LTC',
@@ -104,6 +104,12 @@ function PersistentDrawerLeft() {
                 { id: 'low', isChecked: true },
                 { id: 'close', isChecked: true },
                 { id: 'volume', isChecked: false },
+            ],
+            volume: [
+                { id: 'min', value: '$177.91' },
+                { id: 'max', value: '$193.84' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
             ],
         },
         {
@@ -118,6 +124,12 @@ function PersistentDrawerLeft() {
                 { id: 'close', isChecked: false },
                 { id: 'volume', isChecked: false },
             ],
+            volume: [
+                { id: 'min', value: '$455.97' },
+                { id: 'max', value: '$479.77' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
+            ],
         },
         {
             id: 'ADA',
@@ -130,6 +142,12 @@ function PersistentDrawerLeft() {
                 { id: 'low', isChecked: true },
                 { id: 'close', isChecked: false },
                 { id: 'volume', isChecked: false },
+            ],
+            volume: [
+                { id: 'min', value: '$2.14' },
+                { id: 'max', value: '$2.25' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
             ],
         },
         {
@@ -144,6 +162,12 @@ function PersistentDrawerLeft() {
                 { id: 'close', isChecked: true },
                 { id: 'volume', isChecked: false },
             ],
+            volume: [
+                { id: 'min', value: '$26.15' },
+                { id: 'max', value: '$27.48' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
+            ],
         },
         {
             id: 'ETC',
@@ -157,6 +181,12 @@ function PersistentDrawerLeft() {
                 { id: 'close', isChecked: false },
                 { id: 'volume', isChecked: false },
             ],
+            volume: [
+                { id: 'min', value: '$52.96' },
+                { id: 'max', value: '$56.75' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
+            ],
         },
         {
             id: 'BTC',
@@ -169,6 +199,12 @@ function PersistentDrawerLeft() {
                 { id: 'low', isChecked: false },
                 { id: 'close', isChecked: true },
                 { id: 'volume', isChecked: false },
+            ],
+            volume: [
+                { id: 'min', value: '$57,097.55' },
+                { id: 'max', value: '$62,728.57' },
+                { id: 'avg', value: 1 },
+                { id: 'count', value: 1 },
             ],
         },
     ];
@@ -271,7 +307,7 @@ function PersistentDrawerLeft() {
                     <Card sx={minWidthSX}>
                         <CardContent>
                             <Typography color="text.secondary">Volume:</Typography>
-                            {volume.map(({ id, value }) => (
+                            {coins[selectedCoinIndex].volume.map(({ id, value }) => (
                                 <Box
                                     key={id}
                                     display="flex"
