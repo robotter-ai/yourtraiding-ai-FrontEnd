@@ -23,6 +23,8 @@ import {
     SelectChangeEvent,
 } from '@mui/material';
 import Chart from './Chart';
+import logo from './assets/logo.svg';
+import cloudDownload from './assets/cloud_download.svg';
 
 const drawerWidth = 367;
 
@@ -130,7 +132,7 @@ function PersistentDrawerLeft() {
                 open={true}
             >
                 <DrawerHeader>
-                    <SVG src="/assets/logo.svg" />
+                    <SVG src={logo} />
                     <Typography variant="h5" component="h1">
                         youtrading.ai
                     </Typography>
@@ -267,7 +269,7 @@ function PersistentDrawerLeft() {
                 aria-label="download"
                 style={{ position: 'fixed', right: theme.spacing(3), bottom: theme.spacing(3) }}
             >
-                <SVG src="/assets/cloud_download.svg" />
+                <SVG src={cloudDownload} />
             </Fab>
         </Box>
     );
