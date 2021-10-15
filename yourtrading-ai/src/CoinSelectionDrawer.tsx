@@ -23,7 +23,7 @@ import {
     SelectChangeEvent,
 } from '@mui/material';
 import Chart from './Chart';
-import logo from './assets/logo.svg';
+import ytAIlogo from './assets/logo.svg';
 import cloudDownload from './assets/cloud_download.svg';
 
 const drawerWidth = 367;
@@ -59,10 +59,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const sources = ['Yahoo', 'Google'];
 const intervals = ['Hourly', 'Daily'];
 const volume = [
-    { name: 'min', value: 1 },
-    { name: 'max', value: 1 },
-    { name: 'avg', value: 1 },
-    { name: 'count', value: 1 },
+    { id: 'min', value: 1 },
+    { id: 'max', value: 1 },
+    { id: 'avg', value: 1 },
+    { id: 'count', value: 1 },
 ];
 
 function PersistentDrawerLeft() {
@@ -81,40 +81,65 @@ function PersistentDrawerLeft() {
 
     const coins = [
         {
-            name: 'BTC',
-            value: 123,
+            id: 'ETH',
+            name: 'Ethereum',
+            logo: 'https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880',
+            value: '$3,895.33',
             checked: [
-                { name: 'min', isChecked: true },
-                { name: 'max', isChecked: false },
-                { name: 'mean', isChecked: true },
-                { name: 'count', isChecked: false },
+                { id: 'min', isChecked: true },
+                { id: 'max', isChecked: false },
+                { id: 'mean', isChecked: true },
+                { id: 'count', isChecked: false },
             ],
         },
         {
-            name: 'ETH',
-            value: 123,
+            id: 'LTC',
+            name: 'Litecoin',
+            logo: 'https://assets.coingecko.com/coins/images/2/small/litecoin.png?1547033580',
+            value: '$192.48',
             checked: [
-                { name: 'min', isChecked: true },
-                { name: 'max', isChecked: true },
+                { id: 'min', isChecked: true },
+                { id: 'max', isChecked: true },
             ],
         },
         {
-            name: 'LTC',
-            value: 123,
-            checked: [{ name: 'min', isChecked: true }],
+            id: 'BNB',
+            name: 'Binance Coin',
+            logo: 'https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615',
+            value: '$477.19',
+            checked: [{ id: 'min', isChecked: true }],
         },
         {
-            name: 'XRP',
-            value: 123,
-            checked: [{ name: 'min', isChecked: true }],
+            id: 'ADA',
+            name: 'Cardano',
+            logo: 'https://assets.coingecko.com/coins/images/975/small/cardano.png?1547034860',
+            value: '$2.24',
+            checked: [{ id: 'min', isChecked: true }],
         },
         {
-            name: 'USDT',
-            value: 123,
-            checked: [{ name: 'min', isChecked: true }],
+            id: 'LINK',
+            name: 'Chainlink',
+            logo: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png?1547034700',
+            value: '$27.26',
+            checked: [{ id: 'min', isChecked: true }],
+        },
+        {
+            id: 'ETC',
+            name: 'Ethereum Classic',
+            logo: 'https://assets.coingecko.com/coins/images/453/small/ethereum-classic-logo.png?1547034169',
+            value: '$55.54',
+            checked: [{ id: 'min', isChecked: true }],
+        },
+        {
+            id: 'BTC',
+            name: 'Bitcoin',
+            logo: 'https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579',
+            value: '$62,410.92',
+            checked: [{ id: 'min', isChecked: true }],
         },
     ];
     const minWidthSX = { minWidth: 200 };
+    const selectedCoinIndex = 0;
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -132,7 +157,7 @@ function PersistentDrawerLeft() {
                 open={true}
             >
                 <DrawerHeader>
-                    <SVG src={logo} />
+                    <SVG src={ytAIlogo} />
                     <Typography variant="h5" component="h1">
                         youtrading.ai
                     </Typography>
@@ -140,11 +165,11 @@ function PersistentDrawerLeft() {
                 <Divider />
 
                 <List>
-                    {coins.map(({ name, value, checked }, index) => (
-                        <ListItem button key={name}>
-                            <Checkbox inputProps={{ 'aria-label': `${name} checkbox` }} />
+                    {coins.map(({ id, logo, value, checked }, index) => (
+                        <ListItem button key={id}>
+                            <Checkbox inputProps={{ 'aria-label': `${id} checkbox` }} />
                             <ListItemIcon>
-                                <SVG src="/assets/logo.svg" />
+                                <img src={logo} />
                             </ListItemIcon>
                             <Box
                                 style={{
@@ -155,7 +180,7 @@ function PersistentDrawerLeft() {
                                     justifyContent: 'space-between',
                                 }}
                             >
-                                <Typography>{name}</Typography>
+                                <Typography>{id}</Typography>
                                 <Typography align="right">{value}</Typography>
                                 <Box
                                     style={{
@@ -169,8 +194,8 @@ function PersistentDrawerLeft() {
                                     {checked
                                         .filter((c) => c.isChecked)
                                         .map((c) => (
-                                            <Typography variant="caption" key={c.name}>
-                                                {c.name}
+                                            <Typography variant="caption" key={c.id}>
+                                                {c.id}
                                             </Typography>
                                         ))}
                                 </Box>
@@ -193,23 +218,23 @@ function PersistentDrawerLeft() {
                 >
                     <Box>
                         <Typography variant="h5" component="h2">
-                            Etherium
+                            {coins[selectedCoinIndex].name}
                         </Typography>
                         <Typography variant="h3" component="h3">
-                            $10,561.24
+                            {coins[selectedCoinIndex].value}
                         </Typography>
                     </Box>
 
                     <Card sx={minWidthSX}>
                         <CardContent>
                             <Typography color="text.secondary">Volume:</Typography>
-                            {volume.map(({ name, value }) => (
+                            {volume.map(({ id, value }) => (
                                 <Box
-                                    key={name}
+                                    key={id}
                                     display="flex"
                                     style={{ justifyContent: 'space-between', gap: theme.spacing(2) }}
                                 >
-                                    <Typography variant="body2">{name}</Typography>
+                                    <Typography variant="body2">{id}</Typography>
                                     <Typography variant="body2" align="right">
                                         {value}
                                     </Typography>
@@ -250,16 +275,16 @@ function PersistentDrawerLeft() {
                 <Chart />
 
                 <FormGroup style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing(2) }}>
-                    {coins[0].checked.map(({ name, isChecked }) => (
+                    {coins[selectedCoinIndex].checked.map(({ id, isChecked }) => (
                         <FormControlLabel
                             control={
                                 <Checkbox
                                     checked={isChecked}
-                                    key={name}
-                                    inputProps={{ 'aria-label': `${name} checkbox` }}
+                                    key={id}
+                                    inputProps={{ 'aria-label': `${id} checkbox` }}
                                 />
                             }
-                            label={name}
+                            label={id}
                         />
                     ))}
                 </FormGroup>
