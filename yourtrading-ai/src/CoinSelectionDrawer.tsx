@@ -84,7 +84,7 @@ function PersistentDrawerLeft() {
             id: 'ETH',
             name: 'Ethereum',
             logo: 'https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880',
-            value: '$3,895.33',
+            value: 3895.33,
             checked: [
                 { id: 'min', isChecked: true },
                 { id: 'max', isChecked: false },
@@ -96,7 +96,7 @@ function PersistentDrawerLeft() {
             id: 'LTC',
             name: 'Litecoin',
             logo: 'https://assets.coingecko.com/coins/images/2/small/litecoin.png?1547033580',
-            value: '$192.48',
+            value: 192.48,
             checked: [
                 { id: 'min', isChecked: true },
                 { id: 'max', isChecked: true },
@@ -106,35 +106,35 @@ function PersistentDrawerLeft() {
             id: 'BNB',
             name: 'Binance Coin',
             logo: 'https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615',
-            value: '$477.19',
+            value: 477.19,
             checked: [{ id: 'min', isChecked: true }],
         },
         {
             id: 'ADA',
             name: 'Cardano',
             logo: 'https://assets.coingecko.com/coins/images/975/small/cardano.png?1547034860',
-            value: '$2.24',
+            value: 2.24,
             checked: [{ id: 'min', isChecked: true }],
         },
         {
             id: 'LINK',
             name: 'Chainlink',
             logo: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png?1547034700',
-            value: '$27.26',
+            value: 27.26,
             checked: [{ id: 'min', isChecked: true }],
         },
         {
             id: 'ETC',
             name: 'Ethereum Classic',
             logo: 'https://assets.coingecko.com/coins/images/453/small/ethereum-classic-logo.png?1547034169',
-            value: '$55.54',
+            value: 55.54,
             checked: [{ id: 'min', isChecked: true }],
         },
         {
             id: 'BTC',
             name: 'Bitcoin',
             logo: 'https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579',
-            value: '$62,410.92',
+            value: 62410.92,
             checked: [{ id: 'min', isChecked: true }],
         },
     ];
@@ -190,7 +190,7 @@ function PersistentDrawerLeft() {
                                 }}
                             >
                                 <Typography>{id}</Typography>
-                                <Typography align="right">{value}</Typography>
+                                <Typography align="right">${value}</Typography>
                                 <Box
                                     style={{
                                         gridColumnEnd: 'end',
@@ -230,7 +230,7 @@ function PersistentDrawerLeft() {
                             {coins[selectedCoinIndex].name}
                         </Typography>
                         <Typography variant="h3" component="h3">
-                            {coins[selectedCoinIndex].value}
+                            ${coins[selectedCoinIndex].value}
                         </Typography>
                     </Box>
 
@@ -281,7 +281,7 @@ function PersistentDrawerLeft() {
                     </Box>
                 </Box>
 
-                <Chart />
+                <Chart value={coins[selectedCoinIndex].value} />
 
                 <FormGroup style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing(2) }}>
                     {coins[selectedCoinIndex].checked.map(({ id, isChecked }) => (

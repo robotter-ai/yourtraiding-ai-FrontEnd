@@ -5,26 +5,26 @@ import { useTheme } from '@mui/material/styles';
 function createData(time: string, amount: number) {
     return {
         time,
-        amount,
-        amount2: amount + Math.round(Math.random() * 1000),
-        amount3: amount + Math.round(Math.random() * 2000),
+        amount: amount + Math.round(amount * Math.random() * 0.5),
+        amount2: amount + Math.round(amount * Math.random() * 0.8),
+        amount3: amount + Math.round(amount * Math.random() * 1.1),
     };
 }
 
-const data = [
-    createData('00:00', 0),
-    createData('03:00', 300),
-    createData('06:00', 600),
-    createData('09:00', 800),
-    createData('12:00', 1500),
-    createData('15:00', 2000),
-    createData('18:00', 2400),
-    createData('21:00', 2400),
-    createData('24:00', 2500),
-];
-
-function Chart() {
+function Chart({ value = 1 }: { value?: number }) {
     const theme = useTheme();
+
+    const data = [
+        createData('00:00', value * 0.8),
+        createData('03:00', value * 0.9),
+        createData('06:00', value * 0.7),
+        createData('09:00', value * 1.2),
+        createData('12:00', value * 0.8),
+        createData('15:00', value * 1),
+        createData('18:00', value * 1.1),
+        createData('21:00', value * 0.9),
+        createData('24:00', value * 1),
+    ];
 
     return (
         <React.Fragment>
