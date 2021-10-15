@@ -1,2 +1,0 @@
-(this["webpackJsonpyourtrading-ai"]=this["webpackJsonpyourtrading-ai"]||[]).push([[21],{574:function(t,n,e){"use strict";e.r(n),e.d(n,"amplify_container",(function(){return r}));var i=e(35),r=function(){function t(t){Object(i.k)(this,t)}return t.prototype.render=function(){return Object(i.i)(i.b,null,Object(i.i)("slot",null))},t}();r.style="amplify-container{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;height:100vh}"}}]);
-//# sourceMappingURL=21.8d17d7a7.chunk.js.map
